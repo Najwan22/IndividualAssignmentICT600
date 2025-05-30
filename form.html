@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borang Permohonan</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="uitm-header">
+        <img src="images/uitmLogo.png" alt="UiTM Logo" class="logo">
+        <h1>Borang Permohonan</h1>
+        <p>Pinjaman Kebajikan Pelajar</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Laman Utama</a>
+        <a href="profile.html">Profil Saya</a>
+        <a href="form.html" class="active">Borang</a>
+    </nav>
+
+    <main>
+        <form id="applicationForm" onsubmit="return validateForm(event)">
+            <fieldset>
+                <legend>A. Maklumat Pemohon (Pelajar)</legend>
+                <label for="studentName">Nama:</label>
+                <input type="text" id="studentName" name="studentName" onblur="validateName(this)">
+                <span id="studentNameError" class="error-message"></span>
+
+                <label for="studentIC">No. Kad Pengenalan:</label>
+                <input type="text" id="studentIC" name="studentIC" placeholder="Cth: 010203121234" onblur="validateIC(this)">
+                <span id="studentICError" class="error-message"></span>
+
+                <label for="studentNo">No. Pelajar:</label>
+                <input type="text" id="studentNo" name="studentNo" placeholder="Cth: 2021231123" onblur="validateStudentNo(this)">
+                <span id="studentNoError" class="error-message"></span>
+
+                <label for="semester">Semester:</label>
+                <select id="semester" name="semester" onchange="toggleSemesterOther(this)">
+                    <option value="">Sila pilih</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="lain-lain">Lain-lain</option>
+                </select>
+                <input type="text" id="semesterOther" name="semesterOther" placeholder="Masukkan semester" style="display: none;" onblur="validateSemesterOther(this)">
+                <span id="semesterError" class="error-message"></span>
+
+                <label for="phone">No. Telefon:</label>
+                <input type="text" id="phone" name="phone" placeholder="Cth: 0123456789" onblur="validatePhone(this)">
+                <span id="phoneError" class="error-message"></span>
+
+                <label for="program">Kod Program:</label>
+                <input type="text" id="program" name="program" placeholder="Cth: CS110" onblur="validateProgram(this)">
+                <span id="programError" class="error-message"></span>
+
+                <label for="gpa">GPA/CGPA:</label>
+                <input type="text" id="gpa" name="gpa" placeholder="Cth: 3.50" onkeypress="restrictGPAInput(event)" onblur="validateGPA(this)">
+                <span id="gpaError" class="error-message"></span>
+
+                <label for="sponsorship">Tajaan/Pinjaman:</label>
+                <select id="sponsorship" name="sponsorship" onchange="toggleSponsorshipOther(this)">
+                    <option value="">Sila pilih</option>
+                    <option value="PTPTN">PTPTN</option>
+                    <option value="JPA">JPA</option>
+                    <option value="MARA">MARA</option>
+                    <option value="Zakat">Zakat</option>
+                    <option value="Tiada">Tiada</option>
+                    <option value="lain-lain">Lain-lain</option>
+                </select>
+                <input type="text" id="sponsorshipOther" name="sponsorshipOther" placeholder="Masukkan Tajaan/Pinjaman" style="display: none;" onblur="validateSponsorshipOther(this)">
+                <span id="sponsorshipError" class="error-message"></span>
+
+                <label for="accountNo">No. Akaun (Bank Islam):</label>
+                <input type="text" id="accountNo" name="accountNo" placeholder="Cth: 01234567891011" onblur="validateAccountNo(this)">
+                <span id="accountNoError" class="error-message"></span>
+            </fieldset>
+
+            <fieldset>
+                <legend>B. Maklumat Waris</legend>
+                <label for="guardianName">Nama Waris:</label>
+                <input type="text" id="guardianName" name="guardianName" onblur="validateGuardianName(this)">
+                <span id="guardianNameError" class="error-message"></span>
+
+                <label for="relationship">Hubungan:</label>
+                <select id="relationship" name="relationship" onchange="toggleRelationshipOther(this)">
+                    <option value="">Sila pilih</option>
+                    <option value="Ibu">Ibu</option>
+                    <option value="Bapa">Bapa</option>
+                    <option value="Penjaga">Penjaga</option>
+                    <option value="lain-lain">Lain-lain</option>
+                </select>
+                <input type="text" id="relationshipOther" name="relationshipOther" placeholder="Nyatakan hubungan" style="display: none;" onblur="validateRelationshipOther(this)">
+                <span id="relationshipError" class="error-message"></span>
+
+                <label for="income">Pendapatan (RM):</label>
+                <input type="text" id="income" name="income" placeholder="Cth: 1500" onblur="validateIncome(this)">
+                <span id="incomeError" class="error-message"></span>
+            </fieldset>
+
+            <fieldset>
+                <legend>C. Permohonan</legend>
+                <label for="amount">Jumlah Dimohon (RM):</label>
+                <input type="text" id="amount" name="amount" placeholder="Cth: 1000" onblur="validateAmount(this)">
+                <span id="amountError" class="error-message"></span>
+            </fieldset>
+
+            <button type="submit">Hantar Permohonan</button>
+        </form>
+
+        <div id="successModal" style="display: none;">
+            <div>
+                <h2>Berjaya!</h2>
+                <p>Borang anda telah dihantar. Anda akan diarahkan ke halaman semakan.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="uitm-footer">
+        <p>© 2025 Universiti Teknologi MARA. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semak Permohonan - Pinjaman Kebajikan Pelajar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="uitm-header">
+        <img src="images/uitmLogo.png" alt="Logo UiTM" class="logo">
+        <h1>Semak Permohonan</h1>
+        <p>Pinjaman Kebajikan Pelajar</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Laman Utama</a>
+        <a href="profile.html">Profil Saya</a>
+        <a href="form.html">Borang</a>
+    </nav>
+
+    <main class="review-main">
+        <div id="reviewSection" class="review-section">
+            <h2>Semak Maklumat Permohonan</h2>
+            <div id="printableContent" class="review-content">
+                <section class="review-card">
+                    <h3>Maklumat Pemohon</h3>
+                    <table class="review-table">
+                        <tr>
+                            <th>Nama Pemohon</th>
+                            <td><span id="reviewStudentName"></span></td>
+                        </tr>
+                        <tr>
+                            <th>No. Kad Pengenalan</th>
+                            <td><span id="reviewStudentIC"></span></td>
+                        </tr>
+                        <tr>
+                            <th>No. Pelajar</th>
+                            <td><span id="reviewStudentNo"></span></td>
+                        </tr>
+                        <tr>
+                            <th>Semester</th>
+                            <td><span id="reviewSemester"></span></td>
+                        </tr>
+                        <tr>
+                            <th>No. Telefon</th>
+                            <td><span id="reviewPhone"></span></td>
+                        </tr>
+                        <tr>
+                            <th>Kod Program</th>
+                            <td><span id="reviewProgram"></span></td>
+                        </tr>
+                        <tr>
+                            <th>GPA/CGPA</th>
+                            <td><span id="reviewGPA"></span></td>
+                        </tr>
+                        <tr>
+                            <th>Tajaan/Pinjaman</th>
+                            <td><span id="reviewSponsorship"></span></td>
+                        </tr>
+                        <tr>
+                            <th>No. Akaun (Bank Islam)</th>
+                            <td><span id="reviewAccountNo"></span></td>
+                        </tr>
+                    </table>
+                </section>
+                <section class="review-card">
+                    <h3>Maklumat Waris</h3>
+                    <table class="review-table">
+                        <tr>
+                            <th>Nama Waris</th>
+                            <td><span id="reviewGuardianName"></span></td>
+                        </tr>
+                        <tr>
+                            <th>Hubungan</th>
+                            <td><span id="reviewRelationship"></span></td>
+                        </tr>
+                        <tr>
+                            <th>Pendapatan (RM)</th>
+                            <td><span id="reviewIncome"></span></td>
+                        </tr>
+                    </table>
+                </section>
+                <section class="review-card">
+                    <h3>Butiran Permohonan</h3>
+                    <table class="review-table">
+                        <tr>
+                            <th>Jumlah Dimohon (RM)</th>
+                            <td><span id="reviewAmount"></span></td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+            <div class="review-actions">
+                <button onclick="printDocument()" class="btn btn-primary">
+                    <span class="btn-icon"></span> Cetak
+                </button>
+                <button onclick="resetForm()" class="btn btn-primary">
+                    <span class="btn-icon"></span> Kembali ke Borang
+                </button>
+                <button onclick="goToHome()" class="btn btn-primary">
+                    <span class="btn-icon"></span> Selesai
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="uitm-footer">
+    <p>&copy; 2025 Universiti Teknologi MARA. All rights reserved.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
